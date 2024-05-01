@@ -57,7 +57,7 @@ public class ParallelDesc {
         int choice = 0;
         
         while (choice != 4){
-            System.out.println("\nWhat do you want to compute?\n"
+            System.out.println("\nParallel: What do you want to compute?\n"
                     + "1. Resistance\n"
                     + "2. Voltage\n"
                     + "3. Current\n"
@@ -68,7 +68,7 @@ public class ParallelDesc {
             switch (choice){
                 // Resistance
                 case 1:
-                    System.out.println("\nWhat do you want to know the resistance of?\n"
+                    System.out.println("\nParallel: What do you want to know the resistance of?\n"
                             + "1. Total Resistance (Req)\n"
                             + "2. Resistance of a specific resistor");
                     
@@ -82,7 +82,7 @@ public class ParallelDesc {
                             int numResistors = scanner.nextInt();
                             
                             for (int i = 1; i < numResistors + 1; i++){
-                                System.out.print("\nEnter the resistance of Resistor " + i + ": ");
+                                System.out.print("Enter the resistance of Resistor " + i + ": ");
                                 float r = scanner.nextFloat();
                                 
                                 totalResistance += 1/r;
@@ -94,15 +94,15 @@ public class ParallelDesc {
                             break;
                             
                         case 2:
-                            System.out.print("Total Voltage (Veq): ");
+                            System.out.print("\nTotal Voltage (Veq): ");
                             float totalV = scanner.nextFloat();
                             
-                            System.out.print("Current in that specific resistor (I): ");
+                            System.out.print("Current in the specific resistor (I): ");
                             float currentOfResistor = scanner.nextFloat();
                             
                             float resistanceOfResistor = totalV/currentOfResistor;
                             
-                            System.out.println("Resistance of that specific resistor: " + resistanceOfResistor + " ohms");
+                            System.out.println("\nResistance of that specific resistor: " + resistanceOfResistor + " ohms");
                             break;
                             
                         default:
@@ -123,12 +123,12 @@ public class ParallelDesc {
                     float totalResistance = scanner.nextFloat();
                     
                     float totalVoltage = totalCurrent*totalResistance;
-                    System.out.println("Total Voltage: " + totalVoltage + " V");
+                    System.out.println("\nTotal Voltage: " + totalVoltage + " V");
                     break;
                     
                 // Current    
                 case 3:
-                    System.out.println("\nWhat do you want to know the current of?\n"
+                    System.out.println("\nParallel: What do you want to know the current of?\n"
                             + "1. Total Current (Ieq)\n"
                             + "2. Current of a specific resistor");
                     
@@ -142,7 +142,7 @@ public class ParallelDesc {
                             int numResistors = scanner.nextInt();
                             
                             for (int i = 1; i < numResistors + 1; i++){
-                                System.out.print("\nEnter the current of Resistor " + i + ": ");
+                                System.out.print("Enter the current of Resistor " + i + ": ");
                                 float r = scanner.nextFloat();
                                 
                                 totalC += r;
@@ -151,15 +151,15 @@ public class ParallelDesc {
                             break;
                             
                         case 2:
-                            System.out.print("Total Voltage (Veq): ");
+                            System.out.print("\nTotal Voltage (Veq): ");
                             float totalV = scanner.nextFloat();
                             
-                            System.out.print("Resistance in that specific resistor (R): ");
+                            System.out.print("Resistance in the specific resistor (R): ");
                             float resistanceOfResistor = scanner.nextFloat();
                             
                             float currentOfResistor = totalV/resistanceOfResistor;
                             
-                            System.out.println("Current of that specific resistor: " + currentOfResistor + " A");
+                            System.out.println("\nCurrent of the specific resistor: " + currentOfResistor + " A");
                             break;
                             
                         default:
