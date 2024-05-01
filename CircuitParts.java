@@ -48,5 +48,5 @@ public class CircuitParts {
                     System.out.println("Invalid choice. Please select from the selection above.");
             }
         }
-    }
+    } 
 }

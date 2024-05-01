@@ -41,10 +41,138 @@ public class ParallelDesc {
                     System.out.println("Formula for resistance in parallel circuits:");
                     break;
                 case 4:
+                    parallelCalculator();
                     break;
                 case 5:
                     System.out.println("exiting...");
                     break;
+                default:
+                    System.out.println("Invalid choice. Please select from the selection above.");
+                    break;
+            }
+        }
+    }
+    
+    public void parallelCalculator(){
+        int choice = 0;
+        
+        while (choice != 4){
+            System.out.println("\nWhat do you want to compute?\n"
+                    + "1. Resistance\n"
+                    + "2. Voltage\n"
+                    + "3. Current\n"
+                    + "4. Back");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice){
+                // Resistance
+                case 1:
+                    System.out.println("\nWhat do you want to know the resistance of?\n"
+                            + "1. Total Resistance (Req)\n"
+                            + "2. Resistance of a specific resistor");
+                    
+                    System.out.print("Enter your choice: ");
+                    int rChoice = scanner.nextInt();
+                    
+                    switch (rChoice){
+                        case 1:
+                            float totalResistance = 0f;
+                            System.out.print("\nEnter the number of Resistors: ");
+                            int numResistors = scanner.nextInt();
+                            
+                            for (int i = 1; i < numResistors + 1; i++){
+                                System.out.print("\nEnter the resistance of Resistor " + i + ": ");
+                                float r = scanner.nextFloat();
+                                
+                                totalResistance += 1/r;
+                            }
+                            
+                            totalResistance = 1/totalResistance;
+                            
+                            System.out.println("\nTotal Resistance: " + totalResistance + " ohms");
+                            break;
+                            
+                        case 2:
+                            System.out.print("Total Voltage (Veq): ");
+                            float totalV = scanner.nextFloat();
+                            
+                            System.out.print("Current in that specific resistor (I): ");
+                            float currentOfResistor = scanner.nextFloat();
+                            
+                            float resistanceOfResistor = totalV/currentOfResistor;
+                            
+                            System.out.println("Resistance of that specific resistor: " + resistanceOfResistor + " ohms");
+                            break;
+                            
+                        default:
+                            System.out.println("Invalid choice. Please select from the selection above.");
+                            break;
+                    }
+                    break;
+                    
+                // Voltage    
+                case 2:
+                    System.out.println("\nSince Veq = V1 = V2 +..., Voltage of the whole parallel circuit is the same.");
+                    
+                    System.out.println("\nTotal Voltage Calculator:");
+                    System.out.print("Total Current: ");
+                    float totalCurrent = scanner.nextFloat();
+                    
+                    System.out.print("Total Resistance: ");
+                    float totalResistance = scanner.nextFloat();
+                    
+                    float totalVoltage = totalCurrent*totalResistance;
+                    System.out.println("Total Voltage: " + totalVoltage + " V");
+                    break;
+                    
+                // Current    
+                case 3:
+                    System.out.println("\nWhat do you want to know the current of?\n"
+                            + "1. Total Current (Ieq)\n"
+                            + "2. Current of a specific resistor");
+                    
+                    System.out.print("Enter your choice: ");
+                    int iChoice = scanner.nextInt();
+                    
+                    switch (iChoice){
+                        case 1:
+                            float totalC = 0f;
+                            System.out.print("\nEnter the number of Resistors: ");
+                            int numResistors = scanner.nextInt();
+                            
+                            for (int i = 1; i < numResistors + 1; i++){
+                                System.out.print("\nEnter the current of Resistor " + i + ": ");
+                                float r = scanner.nextFloat();
+                                
+                                totalC += r;
+                            }
+                            System.out.println("\nTotal Current: " + totalC + " A");
+                            break;
+                            
+                        case 2:
+                            System.out.print("Total Voltage (Veq): ");
+                            float totalV = scanner.nextFloat();
+                            
+                            System.out.print("Resistance in that specific resistor (R): ");
+                            float resistanceOfResistor = scanner.nextFloat();
+                            
+                            float currentOfResistor = totalV/resistanceOfResistor;
+                            
+                            System.out.println("Current of that specific resistor: " + currentOfResistor + " A");
+                            break;
+                            
+                        default:
+                            System.out.println("Invalid choice. Please select from the selection above.");
+                            break;
+                    }
+                    break;
+                    
+                // Exit
+                case 4:
+                    break;
+                    
+                // Invalid Input
                 default:
                     System.out.println("Invalid choice. Please select from the selection above.");
                     break;
